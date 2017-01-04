@@ -16,3 +16,8 @@ Any web server can be used. Below instructions pertain only to python.
 
 ## Issues ##
 - Page does not dynamically refresh after json file changes
+
+## References ##
+
+- Stackoverflow
+
