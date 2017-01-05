@@ -11,9 +11,6 @@ $(document).ready(function () { // load json file using jquery ajax
 
             // issue(s) - test.json IS NOT an empty array
             if (hasIssue) {
-                //    there are issues
-                console.log('issues');
-
                 // 1. first hide the no-issues template
                 $('div.no-issues-template').css('display', 'none');
 
@@ -57,8 +54,6 @@ $(document).ready(function () { // load json file using jquery ajax
 
                 });
             } else {
-                // no issues - test.json IS an empty array
-                console.log('no issues');
                 $('div.issue-template').hide();
 
                 // callback to animate no-issues text
