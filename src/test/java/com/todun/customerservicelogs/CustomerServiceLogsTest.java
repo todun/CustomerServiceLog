@@ -10,8 +10,9 @@ import org.junit.Test;
 /**
  * Test for resource located on server
  */
-public class CustomerServiceLogsTest extends AbstractPluginTest {
+public class CustomerServiceLogsTest extends AbstractBaseTest {
 
+    protected static final boolean IS_NOT_A_FILE = false;
     private static Server server;
 
     /**
@@ -24,8 +25,9 @@ public class CustomerServiceLogsTest extends AbstractPluginTest {
         resourceProtocol = "http://";
         resourcePath = "127.0.0.1";
         port = "7070";
+        contextPath = "/";
 
-        baseUrl = buildBaseUri(resourceProtocol, resourcePath, port, false);
+        baseUrl = buildBaseUri(resourceProtocol, resourcePath, port, IS_NOT_A_FILE);
 
         server = new Server(Integer.parseInt(port));
         server.setStopAtShutdown(true);
@@ -35,8 +37,9 @@ public class CustomerServiceLogsTest extends AbstractPluginTest {
 
         // Creating the plugin web application context
         WebAppContext webAppContext = new WebAppContext();
-        webAppContext.setResourceBase("web");
-        webAppContext.setContextPath("/");
+        webAppContext.setResourceBase(RESOURCE_BASE_DIRECTORY);
+        webAppContext.setContextPath(contextPath);
+        webAppContext.setWelcomeFiles(new String[]{RESOURCE_FILE_NAME});
         handlers.addHandler(webAppContext);
 
         // Adding the handlers to the server
